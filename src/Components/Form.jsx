@@ -5,6 +5,7 @@ const Form = ({ addTodo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!value.trim()) return;
     addTodo(value);
     setValue("");
   };

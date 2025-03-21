@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const ToDo = ({ task, deleteTodo, toggleComplete }) => {
+const ToDo = ({ task, deleteTodo, toggleComplete, toggleEdit }) => {
   return (
     <div
       className={`w-[400px] flex items-center justify-between gap-2 p-4 my-3 rounded-lg shadow-lg 
@@ -21,6 +21,7 @@ const ToDo = ({ task, deleteTodo, toggleComplete }) => {
         <FontAwesomeIcon
           icon={faPenToSquare}
           className="text-xl text-white cursor-pointer hover:text-gray-300 transition duration-200"
+          onClick={() => toggleEdit(task.id)}
         />
         <FontAwesomeIcon
           icon={faTrash}
