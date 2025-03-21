@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const Form = ({ addTodo }) => {
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
+    addTodo(value);
+    setValue("");
   };
 
   return (
     <form
-      className=" w-[400px] flex items-center justify-between gap-1 bg-blue-100 p-3 my-10 mx-auto"
+      className="w-[400px] flex items-center gap-2 bg-blue-100 p-4 rounded-lg shadow-md"
       onSubmit={handleSubmit}>
       <input
         type="text"
-        name="list"
-        id="list"
         placeholder="Enter your task..."
-        className="outline-none border-2 border-purple-400 p-4"
+        className="flex-1 p-3 border border-purple-400 rounded-lg outline-none focus:ring-2 focus:ring-purple-500"
         onChange={(e) => setValue(e.target.value)}
+        value={value}
       />
-      <button className="bg-blue-600 p-4 text-2xl text-white" type="submit">
+      <button
+        className="bg-blue-600 px-5 py-3 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-200"
+        type="submit">
         Add Task
       </button>
     </form>
